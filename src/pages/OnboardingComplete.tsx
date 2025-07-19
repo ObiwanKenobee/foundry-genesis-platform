@@ -16,6 +16,14 @@ const OnboardingComplete = () => {
   const navigate = useNavigate();
   const [onboardingData, setOnboardingData] = useState<any>(null);
 
+  // Map covenant IDs to their proper icon components
+  const getCovenantIcon = (covenantName: string) => {
+    if (covenantName?.toLowerCase().includes("gospel")) return Cross;
+    if (covenantName?.toLowerCase().includes("ecological")) return Leaf;
+    if (covenantName?.toLowerCase().includes("stoic")) return Lightbulb;
+    return Cross; // default fallback
+  };
+
   useEffect(() => {
     const data = localStorage.getItem("onboarding_data");
     if (data) {
