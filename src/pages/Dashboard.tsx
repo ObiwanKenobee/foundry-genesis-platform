@@ -52,18 +52,48 @@ interface DashboardData {
     name: string;
     email: string;
     country: string;
+    region?: string;
+    faithTradition?: string;
+    bio?: string;
+    calling?: string;
+    linkedIn?: string;
+    website?: string;
   };
   covenant: {
+    id: string;
     name: string;
     icon: any;
     quote: string;
+    description?: string;
+    principles?: string[];
   };
   startupDetails: {
     projectName: string;
+    missionStatement?: string;
     focusArea: string;
     targetImpact: string;
+    impactType?: string;
+    regionOfOperation?: string;
+    stage?: string;
+    readiness?: string;
+    problemSolving?: string;
   };
-  completedAt: string;
+  missionTracker?: {
+    weeklyFocus: string;
+    reflectionPrompt: string;
+    prayerIntention: string;
+    covenantScore?: number;
+  };
+  marketplaceSettings?: {
+    isPublic: boolean;
+    allowInvestorContact: boolean;
+    fundingStage: string;
+    fundingAmount: string;
+  };
+  completedSteps?: number[];
+  digitalSignature?: string;
+  acceptTerms?: boolean;
+  completedAt?: string;
 }
 
 const Dashboard = () => {
