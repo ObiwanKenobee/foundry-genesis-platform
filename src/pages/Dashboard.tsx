@@ -104,17 +104,17 @@ const Dashboard = () => {
       (1000 * 60 * 60 * 24),
   );
 
-  // Sample data for demonstration
-  const todayScripture = {
-    verse: "Luke 14:28",
-    text: "For which of you, desiring to build a tower, does not first sit down and count the cost?",
-  };
+  // Get covenant-specific data
+  const covenantType = dashboardData.covenant.name.toLowerCase().split(" ")[0]; // gospel, ecological, stoic
+  const covenantData = getCovenantData(covenantType);
+  const todayScripture = getRandomDailyScripture(covenantType);
+  const weeklyMoralFocus = getWeeklyFocus(covenantType);
+  const reflectionPrompt = getRandomReflectionPrompt(covenantType);
 
-  const covenantQuoteOfTheDay =
-    "Let your work be a prayer, and your prayer be your work.";
-  const weeklyMoralFocus = "Stewardship";
-  const reflectionPrompt =
-    "How did I honor God through my business decisions today?";
+  if (!covenantData) {
+    console.warn("Covenant data not found for:", covenantType);
+    return <div>Error loading covenant data</div>;
+  }
 
   return (
     <div
