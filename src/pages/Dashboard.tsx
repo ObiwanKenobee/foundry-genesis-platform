@@ -210,11 +210,14 @@ const Dashboard = () => {
 
               <div>
                 <p className="text-sm font-medium text-foundry-sage">
-                  Quote of the Day
+                  Core Principle
                 </p>
                 <blockquote className="text-foundry-forest italic mt-1">
-                  "{covenantQuoteOfTheDay}"
+                  "{covenantData.coreVerse.text}"
                 </blockquote>
+                <p className="text-xs text-foundry-sage mt-1">
+                  - {covenantData.coreVerse.reference}
+                </p>
               </div>
 
               <div>
