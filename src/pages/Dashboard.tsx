@@ -187,9 +187,35 @@ const Dashboard = () => {
               reflect purpose."
             </p>
           </div>
-        </Card>
+                </Card>
 
-        {/* Top Section: Covenant Summary + Quick Stats */}
+        {/* Navigation Tabs */}
+        <Tabs defaultValue="overview" className="w-full">
+          <TabsList className="grid w-full grid-cols-5 mb-8">
+            <TabsTrigger value="overview" className="flex items-center space-x-2">
+              <Home className="w-4 h-4" />
+              <span>Overview</span>
+            </TabsTrigger>
+            <TabsTrigger value="mission" className="flex items-center space-x-2">
+              <Heart className="w-4 h-4" />
+              <span>Mission Tracker</span>
+            </TabsTrigger>
+            <TabsTrigger value="capital" className="flex items-center space-x-2">
+              <Briefcase className="w-4 h-4" />
+              <span>Capital</span>
+            </TabsTrigger>
+            <TabsTrigger value="analytics" className="flex items-center space-x-2">
+              <BarChart className="w-4 h-4" />
+              <span>Purpose Score</span>
+            </TabsTrigger>
+            <TabsTrigger value="settings" className="flex items-center space-x-2">
+              <Settings className="w-4 h-4" />
+              <span>Settings</span>
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="overview">
+            {/* Top Section: Covenant Summary + Quick Stats */}
         <div className="grid lg:grid-cols-2 gap-8 mb-8">
           {/* Covenant Summary */}
           <Card className="p-6 bg-white shadow-soft border-foundry-gold/30">
