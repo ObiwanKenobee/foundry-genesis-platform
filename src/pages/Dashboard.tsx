@@ -390,42 +390,25 @@ const Dashboard = () => {
               <div className="space-y-6">
                 <div>
                   <h4 className="font-semibold text-foundry-forest mb-3">
-                    Skill Levels
+                    Core Principles Progress
                   </h4>
                   <div className="space-y-3">
-                    <div>
-                      <div className="flex justify-between text-sm mb-1">
-                        <span className="text-foundry-sage">
-                          Product Development
-                        </span>
-                        <span className="text-foundry-forest font-medium">
-                          75%
-                        </span>
-                      </div>
-                      <Progress value={75} className="h-2" />
-                    </div>
-                    <div>
-                      <div className="flex justify-between text-sm mb-1">
-                        <span className="text-foundry-sage">
-                          Kingdom Leadership
-                        </span>
-                        <span className="text-foundry-forest font-medium">
-                          85%
-                        </span>
-                      </div>
-                      <Progress value={85} className="h-2" />
-                    </div>
-                    <div>
-                      <div className="flex justify-between text-sm mb-1">
-                        <span className="text-foundry-sage">
-                          Fundraising Readiness
-                        </span>
-                        <span className="text-foundry-forest font-medium">
-                          60%
-                        </span>
-                      </div>
-                      <Progress value={60} className="h-2" />
-                    </div>
+                    {covenantData.principles.map((principle, index) => {
+                      const values = [75, 85, 68, 82];
+                      return (
+                        <div key={principle.name}>
+                          <div className="flex justify-between text-sm mb-1">
+                            <span className="text-foundry-sage">
+                              {principle.name}
+                            </span>
+                            <span className="text-foundry-forest font-medium">
+                              {values[index]}%
+                            </span>
+                          </div>
+                          <Progress value={values[index]} className="h-2" />
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
 
