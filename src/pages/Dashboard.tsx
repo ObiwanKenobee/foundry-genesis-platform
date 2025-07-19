@@ -339,73 +339,42 @@ const Dashboard = () => {
               </div>
 
               <div className="space-y-4">
-                <div className="flex items-center space-x-3 p-3 bg-foundry-cream/50 rounded-lg">
-                  <Checkbox id="profile" />
-                  <User className="w-5 h-5 text-foundry-sage" />
-                  <label
-                    htmlFor="profile"
-                    className="flex-1 text-foundry-forest font-medium cursor-pointer"
-                  >
-                    Complete Profile
-                  </label>
-                  <Badge
-                    variant="outline"
-                    className="text-foundry-gold border-foundry-gold"
-                  >
-                    90% done
-                  </Badge>
-                </div>
+                {covenantData.missionActions.map((action, index) => {
+                  const statuses = ["90% done", "Pending", "Ready", "Locked"];
+                  const variants = [
+                    "text-foundry-gold border-foundry-gold",
+                    "text-foundry-sage border-foundry-sage",
+                    "text-foundry-gold border-foundry-gold",
+                    "text-foundry-sage border-foundry-sage",
+                  ];
 
-                <div className="flex items-center space-x-3 p-3 bg-foundry-cream/50 rounded-lg">
-                  <Checkbox id="deck" />
-                  <Upload className="w-5 h-5 text-foundry-sage" />
-                  <label
-                    htmlFor="deck"
-                    className="flex-1 text-foundry-forest font-medium cursor-pointer"
-                  >
-                    Upload Deck
-                  </label>
-                  <Badge
-                    variant="outline"
-                    className="text-foundry-sage border-foundry-sage"
-                  >
-                    Pending
-                  </Badge>
-                </div>
-
-                <div className="flex items-center space-x-3 p-3 bg-foundry-cream/50 rounded-lg">
-                  <Checkbox id="covenant" />
-                  <FileText className="w-5 h-5 text-foundry-sage" />
-                  <label
-                    htmlFor="covenant"
-                    className="flex-1 text-foundry-forest font-medium cursor-pointer"
-                  >
-                    Generate Covenant PDF
-                  </label>
-                  <Badge
-                    variant="outline"
-                    className="text-foundry-gold border-foundry-gold"
-                  >
-                    Ready
-                  </Badge>
-                </div>
-
-                <div className="flex items-center space-x-3 p-3 bg-foundry-cream/50 rounded-lg">
-                  <Checkbox id="funding" />
-                  <DollarSign className="w-5 h-5 text-foundry-sage" />
-                  <label
-                    htmlFor="funding"
-                    className="flex-1 text-foundry-forest font-medium cursor-pointer"
-                  >
-                    Apply for Microfunding
-                  </label>
-                  <Badge
-                    variant="outline"
-                    className="text-foundry-sage border-foundry-sage"
-                  >
-                    Locked
-                  </Badge>
-                </div>
+                  return (
+                    <div
+                      key={action.id}
+                      className="flex items-center space-x-3 p-3 bg-foundry-cream/50 rounded-lg"
+                    >
+                      <Checkbox id={action.id} />
+                      <action.icon className="w-5 h-5 text-foundry-sage" />
+                      <div className="flex-1">
+                        <label
+                          htmlFor={action.id}
+                          className="text-foundry-forest font-medium cursor-pointer block"
+                        >
+                          {action.title}
+                        </label>
+                        <p className="text-xs text-foundry-sage">
+                          {action.description}
+                        </p>
+                      </div>
+                      <Badge
+                        variant="outline"
+                        className={variants[index % variants.length]}
+                      >
+                        {statuses[index % statuses.length]}
+                      </Badge>
+                    </div>
+                  );
+                })}
               </div>
             </Card>
 
