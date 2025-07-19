@@ -31,6 +31,9 @@ import {
   Trophy,
   BarChart3,
   Brain,
+  BarChart,
+  Briefcase,
+  Home,
 } from "lucide-react";
 import {
   getCovenantData,
