@@ -114,7 +114,8 @@ const Dashboard = () => {
     : 0;
 
   // Get covenant-specific data
-  const covenantType = dashboardData.covenant.name.toLowerCase().split(" ")[0]; // gospel, ecological, stoic
+  const covenantType =
+    dashboardData.covenant?.name?.toLowerCase().split(" ")[0] || "gospel"; // gospel, ecological, stoic
   const covenantData = getCovenantData(covenantType);
   const todayScripture = getRandomDailyScripture(covenantType);
   const weeklyMoralFocus = getWeeklyFocus(covenantType);
