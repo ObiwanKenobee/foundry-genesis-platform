@@ -251,39 +251,21 @@ const Dashboard = () => {
               Quick Stats
             </h3>
             <div className="grid grid-cols-2 gap-4">
-              <div className="text-center p-4 bg-foundry-cream rounded-lg">
-                <div className="w-12 h-12 bg-foundry-gold/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <TrendingUp className="w-6 h-6 text-foundry-gold" />
+              {covenantData.kpis.slice(0, 4).map((kpi, index) => (
+                <div
+                  key={index}
+                  className="text-center p-4 bg-foundry-cream rounded-lg"
+                >
+                  <div className="w-12 h-12 bg-foundry-gold/20 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <kpi.icon className="w-6 h-6 text-foundry-gold" />
+                  </div>
+                  <p className="text-xs text-foundry-sage mb-1">{kpi.name}</p>
+                  <p className="font-bold text-foundry-forest">
+                    {kpi.currentValue}
+                    {kpi.unit}
+                  </p>
                 </div>
-                <p className="text-xs text-foundry-sage mb-1">Funding Stage</p>
-                <p className="font-bold text-foundry-forest">Pre-Seed</p>
-              </div>
-
-              <div className="text-center p-4 bg-foundry-cream rounded-lg">
-                <div className="w-12 h-12 bg-foundry-gold/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <Target className="w-6 h-6 text-foundry-gold" />
-                </div>
-                <p className="text-xs text-foundry-sage mb-1">Impact Score</p>
-                <p className="font-bold text-foundry-forest">85%</p>
-              </div>
-
-              <div className="text-center p-4 bg-foundry-cream rounded-lg">
-                <div className="w-12 h-12 bg-foundry-gold/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <Cross className="w-6 h-6 text-foundry-gold" />
-                </div>
-                <p className="text-xs text-foundry-sage mb-1">
-                  Integrity Score
-                </p>
-                <p className="font-bold text-foundry-forest">92%</p>
-              </div>
-
-              <div className="text-center p-4 bg-foundry-cream rounded-lg">
-                <div className="w-12 h-12 bg-foundry-gold/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <Trophy className="w-6 h-6 text-foundry-gold" />
-                </div>
-                <p className="text-xs text-foundry-sage mb-1">Project Rank</p>
-                <p className="font-bold text-foundry-forest">#12</p>
-              </div>
+              ))}
             </div>
           </Card>
         </div>
