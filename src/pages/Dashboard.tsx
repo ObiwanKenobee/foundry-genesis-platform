@@ -30,7 +30,14 @@ import {
   Zap,
   Trophy,
   BarChart3,
+  Brain,
 } from "lucide-react";
+import {
+  getCovenantData,
+  getRandomDailyScripture,
+  getWeeklyFocus,
+  getRandomReflectionPrompt,
+} from "@/lib/covenantData";
 
 interface DashboardData {
   founderId: string;
