@@ -106,10 +106,12 @@ const Dashboard = () => {
   }
 
   const firstName = dashboardData.founderProfile.name.split(" ")[0];
-  const daysSinceJoining = Math.floor(
-    (new Date().getTime() - new Date(dashboardData.completedAt).getTime()) /
-      (1000 * 60 * 60 * 24),
-  );
+  const daysSinceJoining = dashboardData.completedAt
+    ? Math.floor(
+        (new Date().getTime() - new Date(dashboardData.completedAt).getTime()) /
+          (1000 * 60 * 60 * 24),
+      )
+    : 0;
 
   // Get covenant-specific data
   const covenantType = dashboardData.covenant.name.toLowerCase().split(" ")[0]; // gospel, ecological, stoic
