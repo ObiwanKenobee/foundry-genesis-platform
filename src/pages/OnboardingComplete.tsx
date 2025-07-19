@@ -95,7 +95,14 @@ Digital Signature: ${onboardingData?.digitalSignature}
           <Card className="p-8 mb-8 bg-white shadow-medium animate-fade-in">
             <div className="flex items-center justify-center space-x-4 mb-6">
               <div className="w-16 h-16 bg-foundry-gold rounded-lg flex items-center justify-center">
-                <onboardingData.covenant.icon className="w-8 h-8 text-foundry-forest" />
+                {(() => {
+                  const IconComponent = getCovenantIcon(
+                    onboardingData.covenant.name,
+                  );
+                  return (
+                    <IconComponent className="w-8 h-8 text-foundry-forest" />
+                  );
+                })()}
               </div>
               <div className="text-left">
                 <h2 className="text-2xl font-bold text-foundry-forest">
