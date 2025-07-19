@@ -188,7 +188,7 @@ const Dashboard = () => {
           <Card className="p-6 bg-white shadow-soft border-foundry-gold/30">
             <div className="flex items-center space-x-4 mb-6">
               <div className="w-16 h-16 bg-foundry-gold rounded-xl flex items-center justify-center">
-                <dashboardData.covenant.icon className="w-8 h-8 text-foundry-forest" />
+                <covenantData.icon className="w-8 h-8 text-foundry-forest" />
               </div>
               <div>
                 <h3 className="text-xl font-bold text-foundry-forest">
