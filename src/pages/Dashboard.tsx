@@ -37,7 +37,11 @@ import {
   getRandomDailyScripture,
   getWeeklyFocus,
   getRandomReflectionPrompt,
-} from "@/lib/covenantData";\nimport { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";\nimport MissionTracker from "@/components/MissionTracker";\nimport PurposeScore from "@/components/PurposeScore";\nimport CapitalMarketplace from "@/components/CapitalMarketplace";
+} from "@/lib/covenantData";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import MissionTracker from "@/components/MissionTracker";
+import PurposeScore from "@/components/PurposeScore";
+import CapitalMarketplace from "@/components/CapitalMarketplace";
 
 interface DashboardData {
   founderId: string;
