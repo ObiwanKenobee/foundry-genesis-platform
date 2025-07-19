@@ -449,15 +449,24 @@ const Dashboard = () => {
                   <div className="flex items-center space-x-2 mb-2">
                     <BookOpen className="w-4 h-4 text-foundry-gold" />
                     <h4 className="font-semibold text-foundry-forest">
-                      Scripture of the Day
+                      {covenantType === "stoic"
+                        ? "Wisdom of the Day"
+                        : "Scripture of the Day"}
                     </h4>
                   </div>
-                  <p className="text-sm text-foundry-sage mb-2">
-                    {todayScripture.verse}
-                  </p>
-                  <blockquote className="text-foundry-forest italic text-sm bg-white/50 p-3 rounded-lg">
-                    "{todayScripture.text}"
-                  </blockquote>
+                  {todayScripture && (
+                    <>
+                      <p className="text-sm text-foundry-sage mb-2">
+                        {todayScripture.reference}
+                      </p>
+                      <blockquote className="text-foundry-forest italic text-sm bg-white/50 p-3 rounded-lg">
+                        "{todayScripture.text}"
+                      </blockquote>
+                      <p className="text-xs text-foundry-sage mt-2 font-medium">
+                        Focus: {todayScripture.focus}
+                      </p>
+                    </>
+                  )}
                 </div>
 
                 <div>
