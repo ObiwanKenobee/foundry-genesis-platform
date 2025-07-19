@@ -123,7 +123,15 @@ const Dashboard = () => {
 
   if (!covenantData) {
     console.warn("Covenant data not found for:", covenantType);
-    return <div>Error loading covenant data</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-foundry-cream">
+        <div className="text-center">
+          <p className="text-foundry-sage">
+            Error loading covenant data. Please try refreshing the page.
+          </p>
+        </div>
+      </div>
+    );
   }
 
   return (
