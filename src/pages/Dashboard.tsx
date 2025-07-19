@@ -513,9 +513,20 @@ const Dashboard = () => {
 
                 <div className="p-3 bg-white/10 rounded-lg">
                   <p className="text-foundry-cream/80 text-sm mb-1">
-                    Capital Estimate
+                    Recommended Investors
                   </p>
-                  <p className="font-bold text-lg">$30,000 – $100,000</p>
+                  <p className="font-bold text-sm">
+                    {covenantData.investorTypes.slice(0, 2).join(", ")}
+                  </p>
+                </div>
+
+                <div className="p-3 bg-white/10 rounded-lg">
+                  <p className="text-foundry-cream/80 text-sm mb-1">
+                    Focus Areas
+                  </p>
+                  <p className="font-bold text-sm">
+                    {covenantData.fundingFocus.slice(0, 2).join(", ")}
+                  </p>
                 </div>
 
                 <Button
